@@ -1,0 +1,37 @@
+name: Rust CI & Compile Gate
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build_and_verify:
+    name: Compile Gate & Demo Execution
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+
+      - name: Cache Cargo Dependencies
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build Release Binary
+        run: cargo build --release
+
+      - name: Run Clippy Linter
+        run: cargo clippy -- -D warnings
+
+      - name: Execute Protocol Genesis Demo Verification
+        env:
+          LSP_DEMO: "1"
+        run: ./target/release/lsp-core
