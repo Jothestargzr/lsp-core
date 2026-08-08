@@ -100,7 +100,7 @@ impl Engine {
 
         LegalPacket {
             action: action.into(), actor_did: entity.officers[0].did.clone(), entity_did: entity.did.clone(),
-            law_hash: law.content_hash.clone(), law_inclusion_proof: law_proof, contract_hash,
+            law_hash: law.content_hash.clone(), law_inclusion_proof: law_proof, contract_hash: contract_hash.clone(),
             sigs: vec![
                 (entity.officers[0].did.clone(), self.officer_kp.sign_hex(packet_hash.as_bytes())),
                 ("did:lsp:inv_1".into(), self.investor_kp.sign_hex(contract_hash.as_bytes())),

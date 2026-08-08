@@ -1,4 +1,4 @@
-use crate::types::H;
+pub use crate::types::H;
 use ed25519_dalek::{Signature, SigningKey, VerifyingKey, Signer, Verifier};
 use rand::rngs::OsRng;
 use sha2::{Digest, Sha256};
