@@ -9,6 +9,7 @@ use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 use tokio::sync::broadcast;
 
+#[allow(dead_code)]
 pub struct Engine {
     pub store: MemoryStore,
     pub law: LawRegistry,

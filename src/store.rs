@@ -51,6 +51,7 @@ impl TerminusStore {
             .send().await.map_err(|e| e.to_string())?;
         Ok(())
     }
+    #[allow(dead_code)]
     pub async fn create_branch(&self, name: &str) -> Result<(), String> {
         reqwest::Client::new()
             .post(format!("{}/api/branch/{}/{}/branch/{}", self.base, self.org, self.db, name))

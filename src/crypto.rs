@@ -1,3 +1,5 @@
+#![allow(clippy::manual_is_multiple_of)]
+
 pub use crate::types::H;
 use ed25519_dalek::{Signature, SigningKey, VerifyingKey, Signer, Verifier};
 use rand::rngs::OsRng;
