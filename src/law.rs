@@ -64,6 +64,7 @@ where F: Fn(&Did) -> Option<H> {
     }).count() >= 1
 }
 
+#[allow(clippy::too_many_arguments)]
 pub fn verify_legal_proof<F>(
     entity: &Entity, p: &LegalPacket,
     law: &LawRegistry, consents: &ConsentRegistry,

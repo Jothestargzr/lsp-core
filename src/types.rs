@@ -91,6 +91,7 @@ impl ProofReceipt {
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
+#[allow(clippy::upper_case_acronyms)]
 pub enum Tier {
     AAA,
     AA,
@@ -175,6 +176,7 @@ pub struct RiskState {
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[allow(clippy::upper_case_acronyms)]
 pub enum Rail {
     Lightning,
     PAPSS,
